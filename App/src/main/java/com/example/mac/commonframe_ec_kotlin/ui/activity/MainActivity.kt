@@ -1,4 +1,4 @@
-package com.example.mac.commonframe_ec_kotlin.ui
+package com.example.mac.commonframe_ec_kotlin.ui.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
