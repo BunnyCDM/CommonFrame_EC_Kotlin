@@ -3,8 +3,7 @@ if (isUserModule.toBoolean()) {
 } else {
     apply plugin: 'com.android.application'
 }
-apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-android' //kotlin插件
 
 
 android {
@@ -43,9 +42,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile project(':Provider')
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+
+    compile project(':Provider')
 }
 repositories {
     mavenCentral()
