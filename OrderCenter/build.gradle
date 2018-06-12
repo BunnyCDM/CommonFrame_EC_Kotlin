@@ -1,5 +1,17 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android' //kotlin插件
+//apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-kapt'
+//
+//kapt {
+//    arguments {
+//        arg("moduleName", project.getName())
+//    }
+//}
+
+//androidExtensions {
+//    experimental = true
+//}
 
 android {
     compileSdkVersion compile_sdk_version
@@ -29,7 +41,15 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile project(':Provider')
+
+//    //Dagger2
+//    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+//
+//    //ARouter
+//    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 }
-repositories {
+
+
+repositories { //删除，什么意思
     mavenCentral()
 }

@@ -5,6 +5,9 @@ if (isUserModule.toBoolean()) {
 }
 apply plugin: 'kotlin-android' //kotlin插件
 
+apply plugin: 'kotlin-android-extensions' //该插件代替了butterknife
+apply plugin: 'kotlin-kapt'
+
 
 android {
     compileSdkVersion 26
@@ -35,6 +38,10 @@ android {
             }
         }
     }
+
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
 }
 
 dependencies {
@@ -42,11 +49,18 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+//    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 
     compile project(':Provider')
+
+    //Dagger2
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //ARouter
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 }
-repositories {
+
+repositories { //删除，什么意思
     mavenCentral()
 }
