@@ -7,12 +7,13 @@ import com.example.usercenter.R
 /**
  * Created by mac on 2018/6/14.
  *
- * 登录界面
+ * 忘记密码界面
  */
-class LoginActivity : AppCompatActivity() {
+
+class ForgetPwdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_forget_pwd)
     }
 }

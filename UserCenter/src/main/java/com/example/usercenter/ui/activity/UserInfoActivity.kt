@@ -7,12 +7,14 @@ import com.example.usercenter.R
 /**
  * Created by mac on 2018/6/14.
  *
- * 登录界面
+ * 用户信息
  */
-class LoginActivity : AppCompatActivity() {
+
+class UserInfoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_user_info)
     }
+
 }

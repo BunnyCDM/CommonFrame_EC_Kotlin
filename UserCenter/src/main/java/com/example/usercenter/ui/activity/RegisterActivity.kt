@@ -7,12 +7,13 @@ import com.example.usercenter.R
 /**
  * Created by mac on 2018/6/14.
  *
- * 登录界面
+ * 注册界面
  */
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
     }
+
 }
