@@ -5,8 +5,8 @@ if (isUserModule.toBoolean()) {
 }
 apply plugin: 'kotlin-android' //kotlin插件
 
-apply plugin: 'kotlin-android-extensions' //该插件代替了butterknife
-apply plugin: 'kotlin-kapt'
+//apply plugin: 'kotlin-android-extensions' //该插件代替了butterknife
+//apply plugin: 'kotlin-kapt'
 
 
 android {
@@ -49,16 +49,14 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-//    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    
 
     compile project(':Provider')
 
-    //Dagger2
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-
-    //ARouter
-    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
+//    //Dagger2
+//    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+//
+//    //ARouter
+//    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 
 }
 
