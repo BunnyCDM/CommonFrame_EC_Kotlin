@@ -1,7 +1,12 @@
 package com.example.usercenter.presenter.view
 
+import com.example.baselibrary.presenter.view.BaseView
+
 /**
  * Created by mac on 2018/6/14.
  */
-interface RegisterView {
+interface RegisterView:BaseView {
+    //fun onRegisterResult(result:Boolean)
+
+    fun onRegisterResult(result:String)
 }

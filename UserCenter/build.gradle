@@ -5,9 +5,8 @@ if (isUserModule.toBoolean()) {
 }
 apply plugin: 'kotlin-android' //kotlin插件
 
-//apply plugin: 'kotlin-android-extensions' //该插件代替了butterknife
-//apply plugin: 'kotlin-kapt'
-
+apply plugin: 'kotlin-android-extensions' //该插件代替了butterknife
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -50,10 +49,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    testCompile 'junit:junit:4.12'
+
     compile project(':Provider')
 
 //    //Dagger2
-//    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
 //
 //    //ARouter
 //    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"

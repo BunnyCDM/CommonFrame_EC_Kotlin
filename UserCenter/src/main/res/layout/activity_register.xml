@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MatchMatch.Vertical.Common">
 
-    <com.kotlin.base.widgets.HeaderBar
-        android:id="@+id/mHeaderBar"
-        style="@style/MatchWrap"
-        app:titleText="注册" />
+    <!--<com.kotlin.base.widgets.HeaderBar-->
+    <!--android:id="@+id/mHeaderBar"-->
+    <!--style="@style/MatchWrap"-->
+    <!--app:titleText="注册" />-->
 
     <LinearLayout
         style="@style/MatchWrap.Vertical"
@@ -29,7 +28,13 @@
 
             <View style="@style/DividerFixedWidth.MarginTopBottom" />
 
-            <com.kotlin.base.widgets.VerifyButton
+            <!--<com.kotlin.base.widgets.VerifyButton-->
+            <!--android:id="@+id/mVerifyCodeBtn"-->
+            <!--style="@style/WrapMatch"-->
+            <!--android:background="@null"-->
+            <!--android:text="获取验证码"-->
+            <!--android:textColor="@color/common_blue" />-->
+            <Button
                 android:id="@+id/mVerifyCodeBtn"
                 style="@style/WrapMatch"
                 android:background="@null"
@@ -75,11 +80,18 @@
             android:hint="请再次输入密码"
             android:inputType="textPassword"
             android:paddingLeft="@dimen/common_padding_small" />
+
     </LinearLayout>
 
+    <!--<Button-->
+        <!--android:id="@+id/mRegisterBtn"-->
+        <!--style="@style/FullBtnStyle"-->
+        <!--android:text="注册" />-->
+
     <Button
+        android:text="注册"
         android:id="@+id/mRegisterBtn"
-        style="@style/FullBtnStyle"
-        android:text="注册" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

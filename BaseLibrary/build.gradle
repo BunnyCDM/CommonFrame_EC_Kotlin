@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android' //kotlin插件
-apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-kapt' //Dagger2插件
 apply plugin: 'kotlin-android-extensions'
 
 android {

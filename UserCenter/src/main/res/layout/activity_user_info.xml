@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MatchMatch.Vertical.Common">
 
-    <com.kotlin.base.widgets.HeaderBar
-        android:id="@id/mHeaderBar"
-        style="@style/MatchWrap"
-        app:rightText="@string/common_save"
-        app:titleText="个人信息" />
+    <!--<com.kotlin.base.widgets.HeaderBar-->
+    <!--android:id="@id/mHeaderBar"-->
+    <!--style="@style/MatchWrap"-->
+    <!--app:rightText="@string/common_save"-->
+    <!--app:titleText="个人信息" />-->
 
     <RelativeLayout
         android:id="@+id/mUserIconView"
@@ -114,4 +114,5 @@
             android:hint="请您填写签名"
             android:inputType="textEmailAddress" />
     </RelativeLayout>
+
 </LinearLayout>
