@@ -1,33 +1,27 @@
 package com.example.usercenter.ui.activity
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View
-import android.widget.Toast
+import com.example.baselibrary.common.AppManager
 import com.example.baselibrary.ext.OnClick
 import com.example.baselibrary.ui.activity.BaseMvpActivity
 import com.example.usercenter.R
-import com.example.usercenter.injection.component.DaggerUserComponent
 import com.example.usercenter.injection.module.UserModule
 import com.example.usercenter.presenter.RegisterPresenter
 import com.example.usercenter.presenter.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
-import java.util.*
 
 /**
  * Created by mac on 2018/6/14.
  *
  * 注册界面
  */
-class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
+class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
 
     override fun injectComponent() {
         DaggerUserComponent.builder().activityComponent(activityComponent).userModule(UserModule()).build().inject(this)
-        mPresenter.mView=this
+        mPresenter.mView = this
     }
 
     override fun onRegisterResult(result: String) {
@@ -55,7 +49,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
 
             //initInjection()
 
-            mPresenter.register("","","")
+            mPresenter.register("", "", "")
             //mPresenter.register2("","")
             //mPresenter.register3("","")
             //mPresenter.register3(mMobileEt.text.toString(),mVerifyCodeEt.text.toString(),mPwdEt.text.toString())
@@ -63,16 +57,16 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
 
 
         mVerifyCodeBtn.setOnClickListener {
-            mPresenter.register4(mMobileEt.text.toString(),mVerifyCodeEt.text.toString(),mPwdEt.text.toString())
+            mPresenter.register4(mMobileEt.text.toString(), mVerifyCodeEt.text.toString(), mPwdEt.text.toString())
         }
 
-        mVerifyCodeBtn.OnClick(object :View.OnClickListener{
+        mVerifyCodeBtn.OnClick(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 toast("自定义事件1")
             }
         })
 
-        mVerifyCodeBtn.OnClick{
+        mVerifyCodeBtn.OnClick {
             toast("自定义事件2")
         }
 
@@ -83,5 +77,17 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
 //
 //        mPresenter.mView=this
 //    }
+
+    private var pressTime: Long = 0
+
+    override fun onBackPressed() {
+        val time = System.currentTimeMillis()
+        if (time - pressTime > 2000) {
+            toast("再按一次退出程序")
+            pressTime = time
+        } else {
+            AppManager.instance.exitApp(this)
+        }
+    }
 
 }
