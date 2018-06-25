@@ -22,7 +22,14 @@ open class BasePresenter<T : BaseView> {
     lateinit var context:Context
 
     fun  checkNetWork():Boolean{
-        return NetWorkUtils.isNetWorkAvailable(context)
+        if(NetWorkUtils.isNetWorkAvailable(context)){
+
+            return true
+        }else{
+            mView.onError("网络不可用")
+            return false
+        }
+
 
     }
 

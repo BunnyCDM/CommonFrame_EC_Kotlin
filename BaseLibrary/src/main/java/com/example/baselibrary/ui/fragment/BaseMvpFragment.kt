@@ -1,12 +1,14 @@
 package com.example.baselibrary.ui.fragment
 
 import android.os.Bundle
+import android.text.AutoText
 import com.example.baselibrary.common.BaseApplication
 import com.example.baselibrary.injection.component.ActivityComponent
 import com.example.baselibrary.injection.component.DaggerActivityComponent
 import com.example.baselibrary.injection.module.ActivityModule
 import com.example.baselibrary.presenter.BasePresenter
 import com.example.baselibrary.presenter.view.BaseView
+import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
 
 /**
@@ -25,8 +27,8 @@ open abstract class BaseMvpFragment<T : BasePresenter<*>> : BaseFragment(), Base
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onError(text: String) {
+        toast(text)
     }
 
     //lateinit var mPresenter:T

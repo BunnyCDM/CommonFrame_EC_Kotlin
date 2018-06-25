@@ -5,7 +5,6 @@ import com.example.baselibrary.common.BaseApplication
 import com.example.baselibrary.injection.component.ActivityComponent
 import com.example.baselibrary.injection.component.DaggerActivityComponent
 import com.example.baselibrary.injection.module.ActivityModule
-import com.example.baselibrary.injection.module.LifecycleProviderModule
 import com.example.baselibrary.presenter.BasePresenter
 import com.example.baselibrary.presenter.view.BaseView
 import com.example.baselibrary.widgets.ProgressLoading
@@ -16,9 +15,9 @@ import javax.inject.Inject
  *
  * Activity基类，业务相关
  */
-open abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView {
+open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
 
-    private lateinit var mLoadingDialog:ProgressLoading
+    private lateinit var mLoadingDialog: ProgressLoading
 
     override fun showLoading() {
         mLoadingDialog.showLoading()
@@ -28,14 +27,13 @@ open abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView 
         mLoadingDialog.hideLoading()
     }
 
-    override fun onError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onError(text: String) {
     }
 
     //lateinit var mPresenter:T
 
     @Inject
-    lateinit var mPresenter:T
+    lateinit var mPresenter: T
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +41,7 @@ open abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView 
 
         injectComponent()
 
-        mLoadingDialog=ProgressLoading.create(this)
+        mLoadingDialog = ProgressLoading.create(this)
     }
 
     abstract fun injectComponent()
@@ -51,8 +49,8 @@ open abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView 
 
     lateinit var activityComponent: ActivityComponent
 
-    private fun initActivityInjection(){
-        activityComponent=DaggerActivityComponent.builder()
+    private fun initActivityInjection() {
+        activityComponent = DaggerActivityComponent.builder()
                 .appComponent((application as BaseApplication).appComponent)
                 .activityModule(ActivityModule(this))
                 .build()
