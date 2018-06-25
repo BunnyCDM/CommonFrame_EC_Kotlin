@@ -6,7 +6,6 @@ import com.example.baselibrary.common.AppManager
 import com.example.baselibrary.ext.OnClick
 import com.example.baselibrary.ui.activity.BaseMvpActivity
 import com.example.usercenter.R
-import com.example.usercenter.injection.module.UserModule
 import com.example.usercenter.presenter.RegisterPresenter
 import com.example.usercenter.presenter.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
@@ -20,8 +19,8 @@ import org.jetbrains.anko.toast
 class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
 
     override fun injectComponent() {
-        DaggerUserComponent.builder().activityComponent(activityComponent).userModule(UserModule()).build().inject(this)
-        mPresenter.mView = this
+//        DaggerUserComponent.builder().activityComponent(activityComponent).userModule(UserModule()).build().inject(this)
+//        mPresenter.mView = this
     }
 
     override fun onRegisterResult(result: String) {
