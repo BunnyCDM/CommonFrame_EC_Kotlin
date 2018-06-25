@@ -1,7 +1,5 @@
 package com.example.baselibrary.presenter.view
 
-import android.text.AutoText
-
 /**
  * Created by mac on 2018/6/14.
  *

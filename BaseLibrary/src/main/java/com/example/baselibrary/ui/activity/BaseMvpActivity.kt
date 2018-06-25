@@ -8,6 +8,7 @@ import com.example.baselibrary.injection.module.ActivityModule
 import com.example.baselibrary.injection.module.LifecycleProviderModule
 import com.example.baselibrary.presenter.BasePresenter
 import com.example.baselibrary.presenter.view.BaseView
+import com.example.baselibrary.widgets.ProgressLoading
 import javax.inject.Inject
 
 /**
@@ -17,13 +18,14 @@ import javax.inject.Inject
  */
 open abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView {
 
+    private lateinit var mLoadingDialog:ProgressLoading
 
     override fun showLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mLoadingDialog.showLoading()
     }
 
     override fun hideLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mLoadingDialog.hideLoading()
     }
 
     override fun onError() {
@@ -40,6 +42,8 @@ open abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView 
         initActivityInjection()
 
         injectComponent()
+
+        mLoadingDialog=ProgressLoading.create(this)
     }
 
     abstract fun injectComponent()
