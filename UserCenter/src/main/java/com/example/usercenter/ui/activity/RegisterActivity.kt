@@ -38,11 +38,14 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
             //startActivity<LoginActivity>("id" to 10)
 
             //register1
-            mPresenter = RegisterPresenter()
-            mPresenter.mView = this
-            mPresenter.register1("", "", "")
+//            mPresenter = RegisterPresenter()
+//            mPresenter.mView = this
+//            mPresenter.register1("", "", "")
 
             //register2
+            mPresenter = RegisterPresenter()
+            mPresenter.mView = this
+            mPresenter.register2("1", "2", "33")
         }
 
     }
