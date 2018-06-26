@@ -45,7 +45,9 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
             //register2
             mPresenter = RegisterPresenter()
             mPresenter.mView = this
-            mPresenter.register2("1", "2", "33")
+            mPresenter.register2(mMobileEt.text.toString(),
+                    mVerifyCodeEt.text.toString(),
+                    mPwdEt.text.toString())
         }
 
     }
