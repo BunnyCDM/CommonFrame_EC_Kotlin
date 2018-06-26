@@ -14,22 +14,21 @@ import java.util.concurrent.TimeUnit
  *
  * Retrofit 工厂，单例
  */
-class RetrofitFactory private constructor(){
+class RetrofitFactory private constructor() {
 
-    companion object{
-        val instance:RetrofitFactory by lazy { RetrofitFactory() }
+    companion object {
+        val instance: RetrofitFactory by lazy { RetrofitFactory() }
     }
 
-    private val retrofit:Retrofit
-    private val interceptor:Interceptor
-
+    private val retrofit: Retrofit
+    private val interceptor: Interceptor
 
 
     init {
 
-        interceptor=Interceptor{
+        interceptor = Interceptor {
             chain ->
-            val requset=chain.request()
+            val requset = chain.request()
                     .newBuilder()
                     .addHeader("Content_Type", "application/json")
                     .addHeader("charset", "UTF-8")
@@ -38,7 +37,7 @@ class RetrofitFactory private constructor(){
             chain.proceed(requset)
         }
 
-        retrofit=Retrofit.Builder()
+        retrofit = Retrofit.Builder()
                 .baseUrl(BaseConstant.SERVER_ADDRESS)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
@@ -46,22 +45,22 @@ class RetrofitFactory private constructor(){
                 .build()
     }
 
-    private fun  initClient(): OkHttpClient {
-       return OkHttpClient.Builder()
-               .addInterceptor(interceptor)
+    private fun initClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+                .addInterceptor(interceptor)
                 .addInterceptor(initLogInterceptor())
-                .connectTimeout(10,TimeUnit.SECONDS)
-                .readTimeout(10,TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(10, TimeUnit.SECONDS)
                 .build()
     }
 
-    private fun  initLogInterceptor(): Interceptor {
-        val  interceptor=HttpLoggingInterceptor()
-        interceptor.level=HttpLoggingInterceptor.Level.BODY
+    private fun initLogInterceptor(): Interceptor {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
         return interceptor
     }
 
-    fun <T>create(service:Class<T>):T{
+    fun <T> create(service: Class<T>): T {
         return retrofit.create(service)
     }
 

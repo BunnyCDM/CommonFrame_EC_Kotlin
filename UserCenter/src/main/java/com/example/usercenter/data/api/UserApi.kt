@@ -12,6 +12,6 @@ import rx.Observable
 interface UserApi {
 
     @POST("userCenter/register")
-    fun register(@Body req:RegisterReq):Observable<BaseResp<String>>
+    fun register(@Body req: RegisterReq): Observable<BaseResp<String>>
 
 }

@@ -13,28 +13,28 @@ import org.jetbrains.anko.find
  *
  * 加载对话框封装
  */
-class ProgressLoading private constructor(context: Context, theme:Int):Dialog(context,theme) {
+class ProgressLoading private constructor(context: Context, theme: Int) : Dialog(context, theme) {
 
 
-    companion object{
+    companion object {
 
-        private lateinit var mDialog:ProgressLoading
-        private var animDrawable:AnimationDrawable?=null
+        private lateinit var mDialog: ProgressLoading
+        private var animDrawable: AnimationDrawable? = null
 
-        fun create(context: Context):ProgressLoading{
+        fun create(context: Context): ProgressLoading {
 
-            mDialog= ProgressLoading(context, R.style.LightProgressDialog)
+            mDialog = ProgressLoading(context, R.style.LightProgressDialog)
             mDialog.setContentView(R.layout.progress_dialog)
             mDialog.setCancelable(true)
             mDialog.setCanceledOnTouchOutside(false)
-            mDialog.window.attributes.gravity=Gravity.CENTER
+            mDialog.window.attributes.gravity = Gravity.CENTER
 
-            val  lp= mDialog.window.attributes
-            lp.dimAmount=0.2f
-            mDialog.window.attributes=lp
+            val lp = mDialog.window.attributes
+            lp.dimAmount = 0.2f
+            mDialog.window.attributes = lp
 
-            val loadingView= mDialog.find<ImageView>(R.id.iv_loading)
-            animDrawable=loadingView.background as AnimationDrawable
+            val loadingView = mDialog.find<ImageView>(R.id.iv_loading)
+            animDrawable = loadingView.background as AnimationDrawable
 
             return mDialog
 
@@ -42,12 +42,12 @@ class ProgressLoading private constructor(context: Context, theme:Int):Dialog(co
     }
 
 
-    fun showLoading(){
+    fun showLoading() {
         super.show()
         animDrawable?.start()
     }
 
-    fun hideLoading(){
+    fun hideLoading() {
         super.dismiss()
         animDrawable?.stop()
     }

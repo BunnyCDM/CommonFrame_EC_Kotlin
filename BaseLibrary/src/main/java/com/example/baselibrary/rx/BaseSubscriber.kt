@@ -8,7 +8,7 @@ import rx.Subscriber
  *
  * Rx订阅者默认实现
  */
-open class BaseSubscriber<T>(val baseView:BaseView):Subscriber<T>() {
+open class BaseSubscriber<T>(val baseView: BaseView) : Subscriber<T>() {
 
 
     override fun onError(e: Throwable?) {

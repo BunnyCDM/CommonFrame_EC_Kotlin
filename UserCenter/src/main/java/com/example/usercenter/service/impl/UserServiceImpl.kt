@@ -1,8 +1,5 @@
 package com.example.usercenter.service.impl
 
-import com.example.baselibrary.ext.convert
-import com.example.baselibrary.ext.convertBoolean
-import com.example.baselibrary.rx.BaseFunc
 import com.example.baselibrary.rx.BaseFuncBoolean
 import com.example.usercenter.data.respoitory.UserRepository
 import com.example.usercenter.service.UserService
@@ -37,13 +34,6 @@ class UserServiceImpl @Inject constructor() : UserService {
             Observable<Boolean> {
         return repository.register(mobile, pwd, verifyCode)
                 .flatMap(BaseFuncBoolean()) //等价与.convertBoolean()
-    }
-
-
-    override fun register2(mobile: String, verifyCode: String, pwd: String):
-            Observable<String> {
-        return repository.register(mobile, pwd, verifyCode)
-                .flatMap(BaseFunc())
     }
 
 

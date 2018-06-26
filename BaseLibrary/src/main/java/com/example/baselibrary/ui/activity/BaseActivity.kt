@@ -9,7 +9,7 @@ import com.example.baselibrary.common.AppManager
  *
  * Activity基类,业务无关
  */
-open class BaseActivity:AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
