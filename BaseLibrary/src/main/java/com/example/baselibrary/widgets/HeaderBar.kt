@@ -22,12 +22,12 @@ class HeaderBar @JvmOverloads constructor(
     private var rightText: String? = null
 
     init {
-        val typeArray = context.obtainStyledAttributes(attrs,R.styleable.HeaderBar)
+        val typeArray = context.obtainStyledAttributes(attrs, R.styleable.HeaderBar)
 
-        isShowBack=typeArray.getBoolean(R.styleable.HeaderBar_isShowBack,true)
+        isShowBack = typeArray.getBoolean(R.styleable.HeaderBar_isShowBack, true)
 
-        titleText=typeArray.getString(R.styleable.HeaderBar_titleText)
-        rightText=typeArray.getString(R.styleable.HeaderBar_rightText)
+        titleText = typeArray.getString(R.styleable.HeaderBar_titleText)
+        rightText = typeArray.getString(R.styleable.HeaderBar_rightText)
 
         initView()
 
@@ -35,17 +35,17 @@ class HeaderBar @JvmOverloads constructor(
 
     }
 
-    private fun initView(){
-        View.inflate(context,R.layout.layout_header_bar,this)
-         mLeftIv.visibility=if (isShowBack) View.VISIBLE else View.GONE
+    private fun initView() {
+        View.inflate(context, R.layout.layout_header_bar, this)
+        mLeftIv.visibility = if (isShowBack) View.VISIBLE else View.GONE
 
         titleText?.let {
-            mTitleTv.text=it
+            mTitleTv.text = it
         }
 
         rightText?.let {
-            mRightTv.text=it
-            mRightTv.visibility=View.VISIBLE
+            mRightTv.text = it
+            mRightTv.visibility = View.VISIBLE
         }
 
     }
