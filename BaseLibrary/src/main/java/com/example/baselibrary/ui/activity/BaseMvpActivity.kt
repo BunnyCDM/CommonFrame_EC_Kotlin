@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.example.baselibrary.presenter.BasePresenter
 import com.example.baselibrary.presenter.view.BaseView
 import com.example.baselibrary.widgets.ProgressLoading
+import javax.inject.Inject
 
 /**
  * Created by mac on 2018/6/14.
@@ -12,6 +13,7 @@ import com.example.baselibrary.widgets.ProgressLoading
  */
 open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
 
+    @Inject
     lateinit var mPresenter: T
 
     private lateinit var mLoadingDialog: ProgressLoading

@@ -2,6 +2,8 @@ package com.example.usercenter.ui.activity
 
 import android.os.Bundle
 import com.example.baselibrary.ui.activity.BaseMvpActivity
+import com.example.usercenter.injection.component.DaggerUserComponent
+import com.example.usercenter.injection.module.UserModule
 import com.example.usercenter.presenter.RegisterPresenter
 import com.example.usercenter.presenter.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
@@ -43,13 +45,20 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
 //            mPresenter.register1("", "", "")
 
             //register2
-            mPresenter = RegisterPresenter()
-            mPresenter.mView = this
+            //mPresenter = RegisterPresenter() //(采用依赖注入后不需要了)
+            //mPresenter.mView = this //单独放在initInjection已经进行初始化了
             mPresenter.register2(mMobileEt.text.toString(),
                     mVerifyCodeEt.text.toString(),
                     mPwdEt.text.toString())
         }
 
+        initInjection()
+
+    }
+
+    private fun initInjection() {
+        DaggerUserComponent.builder().userModule(UserModule()).build().inject(this)
+        mPresenter.mView = this
     }
 
 

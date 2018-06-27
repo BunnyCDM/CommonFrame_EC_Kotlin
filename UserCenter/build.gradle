@@ -6,7 +6,7 @@ if (isUserModule.toBoolean()) {
 apply plugin: 'kotlin-android' //kotlin插件
 
 apply plugin: 'kotlin-android-extensions' //该插件代替了butterknife
-apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-kapt' //Dagger2插件
 
 android {
     compileSdkVersion 26

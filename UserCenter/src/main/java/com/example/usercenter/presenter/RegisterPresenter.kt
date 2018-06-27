@@ -4,6 +4,7 @@ import com.example.baselibrary.ext.execute
 import com.example.baselibrary.presenter.BasePresenter
 import com.example.baselibrary.rx.BaseSubscriber
 import com.example.usercenter.presenter.view.RegisterView
+import com.example.usercenter.service.UserService
 import com.example.usercenter.service.impl.UserServiceImpl
 import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers
@@ -15,10 +16,10 @@ import javax.inject.Inject
  */
 class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
 
+    @Inject
+    lateinit var userService: UserService
+
     fun register1(mobile: String, verifyCode: String, pwd: String) {
-        /**
-         * 业务逻辑
-         */
         mView.onRegisterResult("注册成功")
     }
 
@@ -28,7 +29,7 @@ class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
          */
         //mView.showLoading()
 
-        val userService = UserServiceImpl()
+        //val userService = UserServiceImpl() //（上面已经采用依赖注入，所以就不需要了）
         userService.register1(mobile, verifyCode, pwd)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

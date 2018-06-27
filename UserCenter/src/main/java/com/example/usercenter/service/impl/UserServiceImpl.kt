@@ -14,12 +14,15 @@ import javax.inject.Inject
  */
 class UserServiceImpl @Inject constructor() : UserService {
 
+    @Inject
+    lateinit var repository: UserRepository
+
     override fun register1(mobile: String, verifyCode: String, pwd: String):
             Observable<Boolean> {
 
 //        return Observable.just(true)
 
-        val repository = UserRepository()
+        //val repository = UserRepository() //(上面已经采用依赖注入，所以就不需要了)
         return repository.register(mobile, pwd, verifyCode)
                 .flatMap(object : Func1<BaseResp<String>, Observable<Boolean>> {
 
