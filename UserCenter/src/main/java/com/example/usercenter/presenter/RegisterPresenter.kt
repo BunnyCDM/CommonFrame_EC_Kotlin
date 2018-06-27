@@ -62,12 +62,13 @@ class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
                     override fun onNext(t: Boolean) {
                         mView.onRegisterResult("注册成功")
                     }
-                },lifecycleProvider)
+                }, lifecycleProvider)
     }
 
     @Inject
     @field:[Named("service2")] // @Named("service2")
     lateinit var userService2: UserService
+
     fun register2_2(mobile: String, verifyCode: String, pwd: String) {
 
         userService2.register1(mobile, verifyCode, pwd)

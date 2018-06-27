@@ -1,6 +1,8 @@
 package com.example.usercenter.ui.activity
 
 import android.os.Bundle
+import android.view.View
+import com.example.baselibrary.ext.OnClick
 import com.example.baselibrary.ui.activity.BaseMvpActivity
 import com.example.usercenter.injection.component.DaggerUserComponent
 import com.example.usercenter.injection.module.UserModule
@@ -21,6 +23,10 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
     }
 
     override fun injectComponent() {
+        DaggerUserComponent.builder()
+                .activityComponent(activityComponent)
+                .userModule(UserModule()).build().inject(this)
+        mPresenter.mView = this
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,15 +62,19 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
                     mPwdEt.text.toString())
         }
 
-        initInjection()
+//        mRegisterBtn.OnClick(object :View.OnClickListener{
+//            override fun onClick(p0: View?) {
+//                toast("注册2")
+//            }
+//        })
 
-    }
+//        mRegisterBtn.OnClick{
+//            toast("注册3")
+//        }
 
-    private fun initInjection() {
-        DaggerUserComponent.builder()
-                .activityComponent(activityComponent)
-                .userModule(UserModule()).build().inject(this)
-        mPresenter.mView = this
+
+
+
     }
 
 
