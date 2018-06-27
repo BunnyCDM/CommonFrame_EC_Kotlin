@@ -30,6 +30,10 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
         mVerifyCodeBtn.setOnClickListener {
             //Toast.makeText(this,"获取验证码",Toast.LENGTH_SHORT).show()
             toast("获取验证码")
+
+            mPresenter.register2_2(mMobileEt.text.toString(),
+                    mVerifyCodeEt.text.toString(),
+                    mPwdEt.text.toString())
         }
 
         mRegisterBtn.setOnClickListener {

@@ -10,6 +10,7 @@ import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import javax.inject.Inject
+import javax.inject.Named
 
 /**
  * Created by mac on 2018/6/14.
@@ -17,6 +18,7 @@ import javax.inject.Inject
 class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
 
     @Inject
+    @field:[Named("service")] // @Named("service")
     lateinit var userService: UserService
 
     fun register1(mobile: String, verifyCode: String, pwd: String) {
@@ -61,9 +63,31 @@ class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
                         mView.onRegisterResult("注册成功")
                     }
                 })
-
-
     }
 
+    @Inject
+    @field:[Named("service2")] // @Named("service2")
+    lateinit var userService2: UserService
+    fun register2_2(mobile: String, verifyCode: String, pwd: String) {
+
+        userService2.register1(mobile, verifyCode, pwd)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Subscriber<Boolean>() {
+                    override fun onNext(t: Boolean?) {
+                        if (t != null) {
+                            mView.onRegisterResult("注册失败")
+                        }
+                    }
+
+                    override fun onError(e: Throwable?) {
+                    }
+
+                    override fun onCompleted() {
+                    }
+
+                })
+
+    }
 
 }
