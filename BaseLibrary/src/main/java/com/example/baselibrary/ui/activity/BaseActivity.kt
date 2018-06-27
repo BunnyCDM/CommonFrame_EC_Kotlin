@@ -1,15 +1,15 @@
 package com.example.baselibrary.ui.activity
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.example.baselibrary.common.AppManager
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity
 
 /**
  * Created by mac on 2018/6/14.
  *
  * Activity基类,业务无关
  */
-open class BaseActivity : AppCompatActivity() {
+open class BaseActivity : RxAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
