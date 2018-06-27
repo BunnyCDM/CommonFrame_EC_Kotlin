@@ -5,6 +5,7 @@ import com.example.baselibrary.data.protocol.BaseResp
 import com.example.baselibrary.rx.BaseFunc
 import com.example.baselibrary.rx.BaseFuncBoolean
 import com.example.baselibrary.rx.BaseSubscriber
+import com.trello.rxlifecycle.LifecycleProvider
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -16,9 +17,11 @@ import rx.schedulers.Schedulers
  */
 
 
-fun <T> Observable<T>.execute(subscribe: BaseSubscriber<T>) {
+fun <T> Observable<T>.execute(subscribe: BaseSubscriber<T>,
+                              lifecycleProvider: LifecycleProvider<*>) {
     this.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .compose(lifecycleProvider.bindToLifecycle())
             .subscribe(subscribe)
 }
 
