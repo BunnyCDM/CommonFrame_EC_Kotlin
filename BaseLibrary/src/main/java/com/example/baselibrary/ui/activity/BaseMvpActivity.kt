@@ -1,6 +1,10 @@
 package com.example.baselibrary.ui.activity
 
 import android.os.Bundle
+import com.example.baselibrary.common.BaseApplication
+import com.example.baselibrary.injection.component.ActivityComponent
+import com.example.baselibrary.injection.component.DaggerActivityComponent
+import com.example.baselibrary.injection.module.ActivityModule
 import com.example.baselibrary.presenter.BasePresenter
 import com.example.baselibrary.presenter.view.BaseView
 import com.example.baselibrary.widgets.ProgressLoading
@@ -15,6 +19,8 @@ open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), Base
 
     @Inject
     lateinit var mPresenter: T
+
+    lateinit var activityComponent:ActivityComponent
 
     private lateinit var mLoadingDialog: ProgressLoading
 
@@ -39,6 +45,9 @@ open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), Base
     }
 
     private fun initActivityInjection() {
+        activityComponent=DaggerActivityComponent.builder()
+                .appComponent((application as BaseApplication).appComponent)
+                .activityModule(ActivityModule(this)).build()
 
     }
 
