@@ -1,6 +1,7 @@
 package com.example.baselibrary.common
 
 import android.app.Application
+import android.content.Context
 import com.example.baselibrary.injection.component.AppComponent
 import com.example.baselibrary.injection.component.DaggerAppComponent
 import com.example.baselibrary.injection.module.AppModule
@@ -19,16 +20,17 @@ class BaseApplication : Application() {
 
         initAppInjection()
 
-//        context=this
+        context=this
     }
 
+    //Application Component初始化
     private fun initAppInjection() {
-        appComponent = DaggerAppComponent.builder()
-                .appModule(AppModule(this)).build()
+        appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
     }
 
-//    companion object{
-//        lateinit var context:Context
-//    }
+    //全局伴生对象
+    companion object{
+        lateinit var context: Context
+    }
 
 }
