@@ -80,15 +80,9 @@
 
     </LinearLayout>
 
-    <!--<Button-->
-    <!--android:id="@+id/mRegisterBtn"-->
-    <!--style="@style/FullBtnStyle"-->
-    <!--android:text="注册" />-->
-
     <Button
         android:id="@+id/mRegisterBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/FullBtnStyle"
         android:text="注册" />
 
 </LinearLayout>
