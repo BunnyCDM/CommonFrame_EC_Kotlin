@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MatchMatch.Vertical.Common">
 
-    <!--<com.kotlin.base.widgets.HeaderBar-->
-    <!--android:id="@+id/mHeaderBar"-->
-    <!--style="@style/MatchWrap"-->
-    <!--app:titleText="重置密码" />-->
+    <com.example.baselibrary.widgets.HeaderBar
+        android:id="@+id/mHeaderBar"
+        style="@style/MatchWrap"
+        app:titleText="重置密码" />
 
     <LinearLayout
         style="@style/MatchWrap.Vertical"
@@ -34,6 +35,7 @@
             android:drawablePadding="@dimen/common_padding_small"
             android:hint="请再次输入密码"
             android:inputType="textPassword" />
+
     </LinearLayout>
 
     <Button

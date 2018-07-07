@@ -1,9 +1,7 @@
 package com.example.usercenter.data.api
 
 import com.example.baselibrary.data.protocol.BaseResp
-import com.example.usercenter.data.protocol.LoginReq
-import com.example.usercenter.data.protocol.RegisterReq
-import com.example.usercenter.data.protocol.UserInfo
+import com.example.usercenter.data.protocol.*
 import retrofit2.http.Body
 import retrofit2.http.POST
 import rx.Observable
@@ -23,5 +21,13 @@ interface UserApi {
     //用户登录
     @POST("userCenter/login")
     fun login(@Body req: LoginReq): Observable<BaseResp<UserInfo>>
+
+    //忘记密码
+    @POST("userCenter/forgetPwd")
+    fun forgetPwd(@Body req: ForgetPwdReq): Observable<BaseResp<String>>
+
+    //重置密码
+    @POST("userCenter/resetPwd")
+    fun resetPwd(@Body req: ResetPwdReq): Observable<BaseResp<String>>
 
 }

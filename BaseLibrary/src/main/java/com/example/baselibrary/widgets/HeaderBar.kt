@@ -8,7 +8,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.baselibrary.R
-import com.example.baselibrary.ext.OnClick
+import com.example.baselibrary.ext.onClick
 import kotlinx.android.synthetic.main.layout_header_bar.view.*
 
 /**
@@ -60,7 +60,7 @@ class HeaderBar @JvmOverloads constructor(
         }
 
         //返回图标默认实现（关闭Activity）
-        mLeftIv.OnClick {
+        mLeftIv.onClick {
             if (context is Activity) {
                 (context as Activity).finish()
             }

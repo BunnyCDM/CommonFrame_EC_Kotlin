@@ -45,17 +45,17 @@ fun <T> Observable<BaseResp<T>>.convertBoolean(): Observable<Boolean> {
 }
 
 //扩展点击事件
-fun View.OnClick(listener: View.OnClickListener) {
+fun View.onClick(listener: View.OnClickListener) {
     this.setOnClickListener(listener)
 }
 
 //扩展点击事件、参数为方法
-fun View.OnClick(method: () -> Unit) { //函数是可以作为参数传递的
+fun View.onClick(method: () -> Unit) { //函数是可以作为参数传递的
     this.setOnClickListener { method() }
 }
 
 //扩展Button可用性
-fun Button.enale(et: EditText, method: () -> Boolean) {
+fun Button.enable(et: EditText, method: () -> Boolean) {
     val btn = this
     et.addTextChangedListener(object : DefaultTextWatcher() {
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {

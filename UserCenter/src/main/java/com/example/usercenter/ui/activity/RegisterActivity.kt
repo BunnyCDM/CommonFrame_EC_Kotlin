@@ -2,8 +2,8 @@ package com.example.usercenter.ui.activity
 
 import android.os.Bundle
 import android.view.View
-import com.example.baselibrary.ext.OnClick
-import com.example.baselibrary.ext.enale
+import com.example.baselibrary.ext.onClick
+import com.example.baselibrary.ext.enable
 import com.example.baselibrary.ui.activity.BaseMvpActivity
 import com.example.usercenter.R
 import com.example.usercenter.injection.component.DaggerUserComponent
@@ -28,13 +28,13 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, Vie
 
     //初始化视图
     private fun initView() {
-        mRegisterBtn.enale(mMobileEt, { isBtnEnable() })
-        mRegisterBtn.enale(mVerifyCodeEt, { isBtnEnable() })
-        mRegisterBtn.enale(mPwdEt, { isBtnEnable() })
-        mRegisterBtn.enale(mPwdConfirmEt, { isBtnEnable() })
+        mRegisterBtn.enable(mMobileEt, { isBtnEnable() })
+        mRegisterBtn.enable(mVerifyCodeEt, { isBtnEnable() })
+        mRegisterBtn.enable(mPwdEt, { isBtnEnable() })
+        mRegisterBtn.enable(mPwdConfirmEt, { isBtnEnable() })
 
-        mVerifyCodeBtn.OnClick(this)
-        mRegisterBtn.OnClick(this)
+        mVerifyCodeBtn.onClick(this)
+        mRegisterBtn.onClick(this)
     }
 
     //Dagger注册

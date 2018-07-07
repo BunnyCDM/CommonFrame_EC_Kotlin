@@ -2,8 +2,8 @@ package com.example.usercenter.ui.activity
 
 import android.os.Bundle
 import android.view.View
-import com.example.baselibrary.ext.OnClick
-import com.example.baselibrary.ext.enale
+import com.example.baselibrary.ext.onClick
+import com.example.baselibrary.ext.enable
 import com.example.baselibrary.ui.activity.BaseMvpActivity
 import com.example.provider.PushProvider
 import com.example.usercenter.R
@@ -36,12 +36,12 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
 
     //初始化视图
     private fun initView() {
-        mLoginBtn.enale(mMobileEt, { isBtnEnable() })
-        mLoginBtn.enale(mPwdEt, { isBtnEnable() })
+        mLoginBtn.enable(mMobileEt, { isBtnEnable() })
+        mLoginBtn.enable(mPwdEt, { isBtnEnable() })
 
-        mLoginBtn.OnClick(this)
-        mHeaderBar.getRightView().OnClick(this)
-        mForgetPwdTv.OnClick(this)
+        mLoginBtn.onClick(this)
+        mHeaderBar.getRightView().onClick(this)
+        mForgetPwdTv.onClick(this)
     }
 
     //Dagger注册
