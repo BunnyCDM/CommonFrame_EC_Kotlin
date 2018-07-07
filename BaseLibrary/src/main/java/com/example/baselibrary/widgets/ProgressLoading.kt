@@ -21,9 +21,12 @@ class ProgressLoading private constructor(context: Context, theme: Int) : Dialog
         private lateinit var mDialog: ProgressLoading
         private var animDrawable: AnimationDrawable? = null
 
+        //创建加载对话框
         fun create(context: Context): ProgressLoading {
 
+            //样式引入
             mDialog = ProgressLoading(context, R.style.LightProgressDialog)
+            //设置布局
             mDialog.setContentView(R.layout.progress_dialog)
             mDialog.setCancelable(true)
             mDialog.setCanceledOnTouchOutside(false)
@@ -33,6 +36,7 @@ class ProgressLoading private constructor(context: Context, theme: Int) : Dialog
             lp.dimAmount = 0.2f
             mDialog.window.attributes = lp
 
+            //获取动画视图
             val loadingView = mDialog.find<ImageView>(R.id.iv_loading)
             animDrawable = loadingView.background as AnimationDrawable
 

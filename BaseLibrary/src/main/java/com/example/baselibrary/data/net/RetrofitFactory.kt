@@ -1,6 +1,7 @@
 package com.example.baselibrary.data.net
 
 import com.example.baselibrary.common.BaseConstant
+import com.example.baselibrary.utils.AppPrefsUtils
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,6 +17,8 @@ import java.util.concurrent.TimeUnit
  */
 class RetrofitFactory private constructor() {
 
+
+    //单例实现
     companion object {
         val instance: RetrofitFactory by lazy { RetrofitFactory() }
     }
@@ -23,19 +26,23 @@ class RetrofitFactory private constructor() {
     private val retrofit: Retrofit
     private val interceptor: Interceptor
 
-    init {
 
+    //初始化
+    init {
+        //通用拦截
         interceptor = Interceptor {
             chain ->
             val requset = chain.request()
                     .newBuilder()
                     .addHeader("Content_Type", "application/json")
                     .addHeader("charset", "UTF-8")
+                    .addHeader("token", AppPrefsUtils.getString(BaseConstant.KEY_SP_TOKEN))
                     .build()
 
             chain.proceed(requset)
         }
 
+        //Retrofit实例化
         retrofit = Retrofit.Builder()
                 .baseUrl(BaseConstant.SERVER_ADDRESS)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -44,6 +51,7 @@ class RetrofitFactory private constructor() {
                 .build()
     }
 
+    //OkHttp创建
     private fun initClient(): OkHttpClient {
         return OkHttpClient.Builder()
                 .addInterceptor(interceptor)
@@ -53,12 +61,14 @@ class RetrofitFactory private constructor() {
                 .build()
     }
 
+    //日志拦截器
     private fun initLogInterceptor(): Interceptor {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         return interceptor
     }
 
+    //具体服务实例化
     fun <T> create(service: Class<T>): T {
         return retrofit.create(service)
     }
