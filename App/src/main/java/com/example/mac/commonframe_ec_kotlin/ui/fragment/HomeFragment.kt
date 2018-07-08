@@ -10,9 +10,11 @@ import com.example.baselibrary.widgets.BannerImageLoader
 import com.example.mac.commonframe_ec_kotlin.R
 import com.example.mac.commonframe_ec_kotlin.common.*
 import com.example.mac.commonframe_ec_kotlin.ui.adapter.HomeDiscountAdapter
+import com.example.mac.commonframe_ec_kotlin.ui.adapter.TopicAdapter
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_home.*
+import me.crosswall.lib.coverflow.CoverFlow
 
 /**
  * Created by mac on 2018/6/15.
@@ -72,6 +74,12 @@ class HomeFragment : BaseFragment() {
 
     //初始化主题
     private fun initTopic() {
+        //话题
+        mTopicPager.adapter = TopicAdapter(context, listOf(HOME_TOPIC_ONE, HOME_TOPIC_TWO, HOME_TOPIC_THREE, HOME_TOPIC_FOUR, HOME_TOPIC_FIVE))
+        mTopicPager.currentItem = 1
+        mTopicPager.offscreenPageLimit = 5
+
+        CoverFlow.Builder().with(mTopicPager).scale(0.3f).pagerMargin(-30.0f).spaceSize(0.0f).build()
     }
 
 }
