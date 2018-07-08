@@ -1,16 +1,15 @@
 package com.example.mac.commonframe_ec_kotlin.ui.fragment
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.baselibrary.ui.fragment.BaseFragment
 import com.example.baselibrary.widgets.BannerImageLoader
 import com.example.mac.commonframe_ec_kotlin.R
-import com.example.mac.commonframe_ec_kotlin.common.HOME_BANNER_FOUR
-import com.example.mac.commonframe_ec_kotlin.common.HOME_BANNER_ONE
-import com.example.mac.commonframe_ec_kotlin.common.HOME_BANNER_THREE
-import com.example.mac.commonframe_ec_kotlin.common.HOME_BANNER_TWO
+import com.example.mac.commonframe_ec_kotlin.common.*
+import com.example.mac.commonframe_ec_kotlin.ui.adapter.HomeDiscountAdapter
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -62,6 +61,13 @@ class HomeFragment : BaseFragment() {
 
     //初始化折扣
     private fun initDiscount() {
+        val manager = LinearLayoutManager(context)
+        manager.orientation = LinearLayoutManager.HORIZONTAL
+        mHomeDiscountRv.layoutManager = manager
+
+        val discountAdapter = HomeDiscountAdapter(activity)
+        mHomeDiscountRv.adapter = discountAdapter
+        discountAdapter.setData(mutableListOf(HOME_DISCOUNT_ONE, HOME_DISCOUNT_TWO, HOME_DISCOUNT_THREE, HOME_DISCOUNT_FOUR, HOME_DISCOUNT_FIVE))
     }
 
     //初始化主题

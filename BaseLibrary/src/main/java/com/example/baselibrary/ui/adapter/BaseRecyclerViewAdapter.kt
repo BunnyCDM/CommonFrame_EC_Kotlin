@@ -36,9 +36,8 @@ abstract class BaseRecyclerViewAdapter<T, VH : RecyclerView.ViewHolder>(var mCon
         return dataList.size
     }
 
-    /*
-        ItemClick事件声明
-     */
+
+    // ItemClick事件声明
     interface OnItemClickListener<in T> {
         fun onItemClick(item: T, position: Int)
     }
