@@ -36,9 +36,8 @@ class HomeFragment : BaseFragment() {
         initTopic()
     }
 
-    /*
-    初始化视图
- */
+
+    //初始化视图
     private fun initView() {
 
     }
@@ -58,6 +57,7 @@ class HomeFragment : BaseFragment() {
 
     //初始化公告
     private fun initNews() {
+        mNewsFlipperView.setData(arrayOf("夏日炎炎，第一波福利还有30秒到达战场", "新用户立领1000元优惠券"))
     }
 
     //初始化折扣
