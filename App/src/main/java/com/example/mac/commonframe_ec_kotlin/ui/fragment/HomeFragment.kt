@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.baselibrary.ext.onClick
 import com.example.baselibrary.ui.fragment.BaseFragment
 import com.example.baselibrary.widgets.BannerImageLoader
 import com.example.mac.commonframe_ec_kotlin.R
@@ -15,6 +16,7 @@ import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_home.*
 import me.crosswall.lib.coverflow.CoverFlow
+import org.jetbrains.anko.support.v4.toast
 
 /**
  * Created by mac on 2018/6/15.
@@ -40,7 +42,14 @@ class HomeFragment : BaseFragment() {
 
     //初始化视图
     private fun initView() {
+        mSearchEt.onClick {
+            toast("SearchGoodsActivity")
+            //startActivity<SearchGoodsActivity>()
+        }
 
+        mScanIv.onClick {
+            toast(R.string.coming_soon_tip)
+        }
     }
 
 

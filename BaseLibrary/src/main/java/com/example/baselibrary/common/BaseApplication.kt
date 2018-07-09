@@ -11,7 +11,7 @@ import com.example.baselibrary.injection.module.AppModule
  *
  * Application 基类
  */
-class BaseApplication : Application() {
+open class BaseApplication : Application() {
 
     lateinit var appComponent: AppComponent
 

@@ -2,8 +2,8 @@ package com.example.usercenter.ui.activity
 
 import android.os.Bundle
 import android.view.View
-import com.example.baselibrary.ext.onClick
 import com.example.baselibrary.ext.enable
+import com.example.baselibrary.ext.onClick
 import com.example.baselibrary.ui.activity.BaseMvpActivity
 import com.example.provider.PushProvider
 import com.example.usercenter.R
@@ -77,7 +77,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
     override fun onLoginResult(result: UserInfo) {
         toast("登录成功")
         UserPrefsUtils.putUserInfo(result)
-        startActivity<UserInfoActivity>()
+        //startActivity<UserInfoActivity>()
         finish()
     }
 
