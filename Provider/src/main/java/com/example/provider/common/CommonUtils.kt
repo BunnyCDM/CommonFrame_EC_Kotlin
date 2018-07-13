@@ -1,7 +1,9 @@
 package com.example.provider.common
 
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.common.BaseConstant
 import com.example.baselibrary.utils.AppPrefsUtils
+import com.example.provider.router.RouterPath
 
 /**
  * Created by mac on 2018/6/14.
@@ -23,6 +25,6 @@ fun afterLogin(method: () -> Unit) {
     if (isLogined()){
         method()
     }else{
-        //ARouter.getInstance().build(RouterPath.UserCenter.PATH_LOGIN).navigation()
+        ARouter.getInstance().build(RouterPath.UserCenter.PATH_LOGIN).navigation()
     }
 }

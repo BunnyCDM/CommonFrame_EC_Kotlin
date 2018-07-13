@@ -8,6 +8,12 @@ apply plugin: 'kotlin-android' //kotlin插件
 apply plugin: 'kotlin-android-extensions' //该插件代替了butterknife
 apply plugin: 'kotlin-kapt' //Dagger2插件
 
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -53,11 +59,11 @@ dependencies {
 
     compile project(':Provider')
 
-//    //Dagger2
+    //Dagger2
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
-//
-//    //ARouter
-//    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
+
+    //ARouter
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 
 }
 

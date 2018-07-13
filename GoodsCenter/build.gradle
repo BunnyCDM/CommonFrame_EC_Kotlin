@@ -3,11 +3,11 @@ apply plugin: 'kotlin-android' //kotlin插件
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-//kapt {
-//    arguments {
-//        arg("moduleName", project.getName())
-//    }
-//}
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
 
 android {
     compileSdkVersion compile_sdk_version
@@ -40,11 +40,11 @@ dependencies {
 
     //Dagger2
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
-//
-//    //ARouter
-//    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
-//
-//    compile 'ren.qinc.numberbutton:numberbutton:0.0.1'
+
+    //ARouter
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
+
+    compile 'ren.qinc.numberbutton:numberbutton:0.0.1'
 }
 
 repositories { //删除，什么意思
