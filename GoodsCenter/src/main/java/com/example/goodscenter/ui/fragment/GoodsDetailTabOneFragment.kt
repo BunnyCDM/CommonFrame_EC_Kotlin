@@ -30,6 +30,7 @@ import com.example.goodscenter.widget.GoodsSkuPopView
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_goods_detail_tab_one.*
+import org.jetbrains.anko.support.v4.toast
 
 /**
  * Created by mac on 2018/7/10.
@@ -169,6 +170,7 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>(), Goods
 
     //加入购物车 回调
     override fun onAddCartResult(result: Int) {
+        toast("Cart---$result")
         Bus.send(UpdateCartSizeEvent())
     }
 
