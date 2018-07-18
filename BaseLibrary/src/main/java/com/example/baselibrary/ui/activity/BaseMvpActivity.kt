@@ -1,6 +1,7 @@
 package com.example.baselibrary.ui.activity
 
 import android.os.Bundle
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.common.BaseApplication
 import com.example.baselibrary.injection.component.ActivityComponent
 import com.example.baselibrary.injection.component.DaggerActivityComponent
@@ -19,6 +20,8 @@ import javax.inject.Inject
  */
 open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
 
+
+    //Presenter泛型，Dagger注入
     @Inject
     lateinit var mPresenter: T
 
@@ -31,8 +34,10 @@ open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), Base
         initActivityInjection()
         injectComponent()
 
-        //初始化加载框
+        //初始加载框
         mLoadingDialog = ProgressLoading.create(this)
+        //ARouter注册
+        ARouter.getInstance().inject(this)
     }
 
     //Dagger注册
