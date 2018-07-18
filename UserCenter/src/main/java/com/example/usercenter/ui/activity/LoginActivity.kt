@@ -2,6 +2,7 @@ package com.example.usercenter.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.baselibrary.ext.enable
 import com.example.baselibrary.ext.onClick
@@ -26,7 +27,8 @@ import org.jetbrains.anko.toast
  */
 @Route(path = RouterPath.UserCenter.PATH_LOGIN)
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
-
+    @Autowired(name = RouterPath.MessageCenter.PATH_MESSAGE_PUSH)
+    @JvmField
     var mPushProvider: PushProvider? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

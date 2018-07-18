@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android' //kotlin插件
-//apply plugin: 'kotlin-android-extensions'
-//apply plugin: 'kotlin-kapt'
-//
-//kapt {
-//    arguments {
-//        arg("moduleName", project.getName())
-//    }
-//}
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
 
 android {
     compileSdkVersion compile_sdk_version
@@ -22,17 +22,17 @@ android {
         //删除，什么意思
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-//        ndk {
-//            //选择要添加的对应cpu类型的.so库。
-//            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
-//            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
-//        }
-//
-//        manifestPlaceholders = [
-//                JPUSH_PKGNAME : "com.kotlin.mall",
-//                JPUSH_APPKEY : "7f3d74ec9161e033d723f585", //JPush上注册的包名对应的appkey.
-//                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
-//        ]
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : "com.example.mac.commonframe_ec_kotlin",
+                JPUSH_APPKEY : "7f3d74ec9161e033d723f585", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
 
     }
     buildTypes {
@@ -51,14 +51,14 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':Provider')
 
-//    //Dagger2
-//    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-//
-//    //ARouter
-//    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
-//
-//    compile 'cn.jiguang.sdk:jpush:3.0.9'  // 此处以JPush 3.0.9 版本为例。
-//    compile 'cn.jiguang.sdk:jcore:1.1.7'  // 此处以JCore 1.1.7 版本为例。
+    //Dagger2
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //ARouter
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
+
+    compile 'cn.jiguang.sdk:jpush:3.0.9'  // 此处以JPush 3.0.9 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.1.7'  // 此处以JCore 1.1.7 版本为例。
 }
 repositories {
     mavenCentral()
