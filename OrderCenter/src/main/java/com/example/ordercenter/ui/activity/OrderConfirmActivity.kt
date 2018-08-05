@@ -1,6 +1,5 @@
 package com.example.ordercenter.ui.activity
 
-import android.media.AudioRecord
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Autowired
@@ -28,6 +27,8 @@ import org.jetbrains.anko.toast
 
 /**
  * Created by mac on 2018/7/18.
+ *
+ * 订单确认页
  */
 @Route(path = RouterPath.OrderCenter.PATH_ORDER_CONFIRM)
 class OrderConfirmActivity : BaseMvpActivity<OrderConfirmPresenter>(), OrderConfirmView {

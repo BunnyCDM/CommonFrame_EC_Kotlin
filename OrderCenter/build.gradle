@@ -9,7 +9,7 @@ kapt {
     }
 }
 
-androidExtensions {
+androidExtensions {//xuleihua
     experimental = true
 }
 

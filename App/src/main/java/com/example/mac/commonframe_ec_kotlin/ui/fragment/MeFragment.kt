@@ -9,12 +9,18 @@ import com.example.baselibrary.ext.onClick
 import com.example.baselibrary.ui.fragment.BaseFragment
 import com.example.baselibrary.utils.AppPrefsUtils
 import com.example.mac.commonframe_ec_kotlin.R
+import com.example.mac.commonframe_ec_kotlin.ui.activity.SettingActivity
+import com.example.ordercenter.common.OrderConstant
+import com.example.ordercenter.common.OrderStatus
+import com.example.ordercenter.ui.activity.OrderActivity
+import com.example.ordercenter.ui.activity.ShipAddressActivity
 import com.example.provider.common.ProviderConstant
 import com.example.provider.common.afterLogin
 import com.example.provider.common.isLogined
 import com.example.usercenter.ui.activity.UserInfoActivity
 import kotlinx.android.synthetic.main.fragment_me.*
 import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.support.v4.toast
 
 /**
  * Created by mac on 2018/6/15.
@@ -74,38 +80,38 @@ class MeFragment : BaseFragment(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.id) {
             R.id.mUserIconIv, R.id.mUserNameTv -> {
-//                afterLogin {
-//                    startActivity<UserInfoActivity>()
-//                }
-                startActivity<UserInfoActivity>()
+                afterLogin {
+                    startActivity<UserInfoActivity>()
+                }
             }
-//
-//            R.id.mWaitPayOrderTv -> {
-//                startActivity<OrderActivity>(OrderConstant.KEY_ORDER_STATUS to OrderStatus.ORDER_WAIT_PAY)
-//            }
-//            R.id.mWaitConfirmOrderTv -> {
-//                startActivity<OrderActivity>(OrderConstant.KEY_ORDER_STATUS to OrderStatus.ORDER_WAIT_CONFIRM)
-//            }
-//            R.id.mCompleteOrderTv -> {
-//                startActivity<OrderActivity>(OrderConstant.KEY_ORDER_STATUS to OrderStatus.ORDER_COMPLETED)
-//            }
-//            R.id.mAllOrderTv -> {
-//                afterLogin {
-//                    startActivity<OrderActivity>()
-//                }
-//            }
-//
-//            R.id.mAddressTv -> {
-//                afterLogin {
-//                    startActivity<ShipAddressActivity>()
-//                }
-//            }
-//            R.id.mShareTv -> {
-//                toast(R.string.coming_soon_tip)
-//            }
-//            R.id.mSettingTv -> {
-//                startActivity<SettingActivity>()
-//            }
+
+            R.id.mWaitPayOrderTv -> {
+                startActivity<OrderActivity>(OrderConstant.KEY_ORDER_STATUS to OrderStatus.ORDER_WAIT_PAY)
+            }
+
+            R.id.mWaitConfirmOrderTv -> {
+                startActivity<OrderActivity>(OrderConstant.KEY_ORDER_STATUS to OrderStatus.ORDER_WAIT_CONFIRM)
+            }
+            R.id.mCompleteOrderTv -> {
+                startActivity<OrderActivity>(OrderConstant.KEY_ORDER_STATUS to OrderStatus.ORDER_COMPLETED)
+            }
+            R.id.mAllOrderTv -> {
+                afterLogin {
+                    startActivity<OrderActivity>()
+                }
+            }
+
+            R.id.mAddressTv -> {
+                afterLogin {
+                    startActivity<ShipAddressActivity>()
+                }
+            }
+            R.id.mShareTv -> {
+                toast(R.string.coming_soon_tip)
+            }
+            R.id.mSettingTv -> {
+                startActivity<SettingActivity>()
+            }
         }
     }
 
