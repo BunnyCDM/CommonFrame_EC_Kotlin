@@ -11,7 +11,7 @@ import javax.inject.Singleton
  * Application级别Component
  */
 
-@Singleton
+@Singleton //并没有什么实际的能力，只是告诉AppComponent是单例
 @Component(modules = arrayOf(AppModule::class))
 interface AppComponent {
     fun context(): Context

@@ -10,7 +10,7 @@ import javax.inject.Inject
 /**
  * Created by mac on 2018/6/14.
  *
- * 用户相关数据层
+ * 用户相关数据层，真正去访问网络的
  */
 class UserRepository @Inject constructor() {
 

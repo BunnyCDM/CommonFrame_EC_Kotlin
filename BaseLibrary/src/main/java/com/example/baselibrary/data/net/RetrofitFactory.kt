@@ -17,15 +17,13 @@ import java.util.concurrent.TimeUnit
  */
 class RetrofitFactory private constructor() {
 
-
-    //单例实现
-    companion object {
+    //单例实现,lazy本身就线程安全
+    companion object { //这种写法就相当于java中public static
         val instance: RetrofitFactory by lazy { RetrofitFactory() }
     }
 
     private val retrofit: Retrofit
     private val interceptor: Interceptor
-
 
     //初始化
     init {

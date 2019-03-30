@@ -18,15 +18,18 @@ class AppManager private constructor() {
         val instance: AppManager by lazy { AppManager() }
     }
 
+    //入栈
     fun addActivity(activity: Activity) {
         activityStack.add(activity)
     }
 
+    //出栈
     fun finishActivity(activity: Activity) {
         activity.finish()
         activityStack.remove(activity)
     }
 
+    //获取当前栈顶
     fun currentActivity(): Activity {
         return activityStack.lastElement()
     }
@@ -39,6 +42,7 @@ class AppManager private constructor() {
         activityStack.clear()
     }
 
+    //退出应用程序
     fun exitApp(context: Context) {
         finishAllActivity()
         val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager

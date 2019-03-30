@@ -9,13 +9,13 @@ kapt {
     }
 }
 
-androidExtensions {//xuleihua
+androidExtensions {
     experimental = true
 }
 
 android {
     compileSdkVersion compile_sdk_version
-    buildToolsVersion build_tools_version
+    //buildToolsVersion build_tools_version
 
     defaultConfig {
         minSdkVersion min_sdk_version
@@ -35,12 +35,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
-    compile project(':Provider')
+    testImplementation 'junit:junit:4.12'
+    api project(':Provider')
 
     //Dagger2
     kapt "com.google.dagger:dagger-compiler:$dagger_version"

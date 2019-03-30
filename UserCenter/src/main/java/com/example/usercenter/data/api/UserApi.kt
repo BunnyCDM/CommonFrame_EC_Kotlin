@@ -17,7 +17,6 @@ interface UserApi {
     @POST("userCenter/register")
     fun register(@Body req: RegisterReq): Observable<BaseResp<String>>
 
-
     //用户登录
     @POST("userCenter/login")
     fun login(@Body req: LoginReq): Observable<BaseResp<UserInfo>>
