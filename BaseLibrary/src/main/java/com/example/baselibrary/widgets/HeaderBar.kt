@@ -20,7 +20,6 @@ class HeaderBar @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-
     //是否显示"返回图标
     private var isShowBack = true
     //Title文字

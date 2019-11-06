@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android' //kotlin插件
+apply plugin: 'kotlin-android-extensions'//该插件代替了butterknife
 apply plugin: 'kotlin-kapt' //Dagger2插件
-apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion compile_sdk_version
@@ -67,6 +67,9 @@ dependencies {
     api "com.trello:rxlifecycle-kotlin:$rx_lifecycle_version"
     api "com.trello:rxlifecycle-components:$rx_lifecycle_version"
 
+    //Alert View
+    api "com.bigkoo:alertview:${alert_view_version}"
+
     //Glide
     api "com.github.bumptech.glide:glide:$glide_version"
 
@@ -74,8 +77,6 @@ dependencies {
     api "de.hdodenhof:circleimageview:${circle_imageView_version}"
     //Take Photo
     api "com.jph.takephoto:takephoto_library:${take_photo_version}"
-    //Alert View
-    api "com.bigkoo:alertview:${alert_view_version}"
 
     //七牛
     api 'com.qiniu:qiniu-android-sdk:7.3.+'
