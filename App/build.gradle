@@ -40,10 +40,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     implementation project(':Provider')
+
     if (isUserModule.toBoolean()) {
         implementation project(':UserCenter')
     }
-
     implementation project(':MessageCenter')
     implementation project(':GoodsCenter')
     implementation project(':OrderCenter')
