@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/App/App.iml" filepath="$PROJECT_DIR$/App/App.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BaseLibrary/BaseLibrary.iml" filepath="$PROJECT_DIR$/BaseLibrary/BaseLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommonFrame_EC_Kotlin.iml" filepath="$PROJECT_DIR$/CommonFrame_EC_Kotlin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GoodsCenter/GoodsCenter.iml" filepath="$PROJECT_DIR$/GoodsCenter/GoodsCenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MessageCenter/MessageCenter.iml" filepath="$PROJECT_DIR$/MessageCenter/MessageCenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/OrderCenter/OrderCenter.iml" filepath="$PROJECT_DIR$/OrderCenter/OrderCenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PaySDK/PaySDK.iml" filepath="$PROJECT_DIR$/PaySDK/PaySDK.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Provider/Provider.iml" filepath="$PROJECT_DIR$/Provider/Provider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/UserCenter/UserCenter.iml" filepath="$PROJECT_DIR$/UserCenter/UserCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/App/CommonFrame_EC_Kotlin.App.iml" filepath="$PROJECT_DIR$/.idea/modules/App/CommonFrame_EC_Kotlin.App.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BaseLibrary/CommonFrame_EC_Kotlin.BaseLibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/BaseLibrary/CommonFrame_EC_Kotlin.BaseLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GoodsCenter/CommonFrame_EC_Kotlin.GoodsCenter.iml" filepath="$PROJECT_DIR$/.idea/modules/GoodsCenter/CommonFrame_EC_Kotlin.GoodsCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MessageCenter/CommonFrame_EC_Kotlin.MessageCenter.iml" filepath="$PROJECT_DIR$/.idea/modules/MessageCenter/CommonFrame_EC_Kotlin.MessageCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/OrderCenter/CommonFrame_EC_Kotlin.OrderCenter.iml" filepath="$PROJECT_DIR$/.idea/modules/OrderCenter/CommonFrame_EC_Kotlin.OrderCenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PaySDK/CommonFrame_EC_Kotlin.PaySDK.iml" filepath="$PROJECT_DIR$/.idea/modules/PaySDK/CommonFrame_EC_Kotlin.PaySDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Provider/CommonFrame_EC_Kotlin.Provider.iml" filepath="$PROJECT_DIR$/.idea/modules/Provider/CommonFrame_EC_Kotlin.Provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/UserCenter/CommonFrame_EC_Kotlin.UserCenter.iml" filepath="$PROJECT_DIR$/.idea/modules/UserCenter/CommonFrame_EC_Kotlin.UserCenter.iml" />
     </modules>
   </component>
 </project>
